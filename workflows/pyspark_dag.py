@@ -1,3 +1,4 @@
+# pyspark_dag.py
 # import all modules
 import airflow
 from airflow import DAG
@@ -13,7 +14,7 @@ from airflow.providers.google.cloud.operators.dataproc import (
 PROJECT_ID = "project-275c7543-3087-49e0-a9a"
 REGION = "us-east1"
 CLUSTER_NAME = "dpcluster"
-COMPOSER_BUCKET = " us-central1-composer-a215234f-bucket" ## change this 
+COMPOSER_BUCKET = "us-central1-composer-a215234f-bucket" ## change this 
 
 GCS_JOB_FILE_1 = f"gs://{COMPOSER_BUCKET}/data/INGESTION/hospitalA_mysqlToLanding.py"
 PYSPARK_JOB_1 = {
@@ -46,7 +47,7 @@ PYSPARK_JOB_4 = {
 
 ARGS = {
     "owner": "Charan",
-    "start_date": None,
+    "start_date":  days_ago(1),
     "depends_on_past": False,
     "email_on_failure": False,
     "email_on_retry": False,

@@ -1,3 +1,4 @@
+#bq_dag.py
 import airflow
 from airflow import DAG
 from datetime import timedelta
@@ -23,7 +24,7 @@ GOLD_QUERY = read_sql_file(SQL_FILE_PATH_3)
 # Define default arguments
 ARGS = {
     "owner": "Charan",
-    "start_date": None,
+    "start_date":  days_ago(1),
     "depends_on_past": False,
     "email_on_failure": False,
     "email_on_retry": False,
