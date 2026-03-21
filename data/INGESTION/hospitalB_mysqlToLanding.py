@@ -154,7 +154,7 @@ def extract_and_save_to_landing(table, load_type, watermark_col):
 
         (audit_df.write.format("bigquery")
             .option("table", BQ_AUDIT_TABLE)
-            .option("temp", GCS_BUCKET)
+            .option("temporaryGcsBucket", GCS_BUCKET)
             .mode("append")
             .save())
 
