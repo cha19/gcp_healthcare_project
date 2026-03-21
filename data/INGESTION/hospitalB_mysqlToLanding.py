@@ -118,6 +118,7 @@ def get_latest_watermark(table_name):
     return "1900-01-01 00:00:00"
 
 ##------------------------------------------------------------------------------------------------------------------##
+##------------------------------------------------------------------------------------------------------------------##
 
 # Function to Extract Data from MySQL and Save to GCS
 def extract_and_save_to_landing(table, load_type, watermark_col):
