@@ -69,7 +69,7 @@ def save_logs_to_bigquery():
         log_df = spark.createDataFrame(log_entries)
         log_df.write.format("bigquery") \
             .option("table", BQ_LOG_TABLE) \
-            .option("temp", BQ_TEMP_PATH) \
+            .option("temporaryGcsBucket", BQ_TEMP_PATH) \
             .mode("append") \
             .save()
         print("✅ Logs stored in BigQuery for future analysis")
