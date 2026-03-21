@@ -72,19 +72,24 @@ we need to create a pipeline, the result of this pipeline will be fact tables an
 one notes link: [link](https://onedrive.live.com/:o:/g/personal/282d1ff2e727ca8c/IgCraJudOFu_SbPElOah0ARDARQP3wjQCInzJWTOjAo_TV8?rtime=4CIN9Rt33kg&redeem=aHR0cHM6Ly8xZHJ2Lm1zL28vYy8yODJkMWZmMmU3MjdjYThjL0VxdG9tNTA0Vzc5SnM4U1U1cUhRQkVNQkZBX2ZDTkFJaWZNbFpNNk1DajlOWHc_ZT1Kd3dubHI)
 
 
+	--zone="us-east1-b" \
+	--network=default \
 
-gcloud dataproc clusters create ${CLUSTER_NAME} /
-    --region ${REGION} /
-    --num-workers=2 /
-    --worker-machine-type=n1-standard-2 /
-    --worker-boot-disk-size=50 /
-    --master-machine-type=n1-standard-2 /
-    --master-boot-disk-size=50 /
-    --image-version=2.0-debian10 /
-    --enable-component-gateway /
-    --optional-components=JUPYTER /
-    --initialization-actions=gs://goog-dataproc-initialization-actions-${REGION}/connectors/connectors.sh /
-    --metadata bigquery-connector-version=1.2.0 /
+CLUSTER_NAME="dpcluster" 
+REGION="us-east1" 
+gcloud dataproc clusters create ${CLUSTER_NAME} \
+    --region ${REGION} \
+    --num-workers=2 \
+    --worker-machine-type=n1-standard-2 \
+    --worker-boot-disk-size=150 \
+    --master-machine-type=n1-standard-2 \
+    --master-boot-disk-size=150 \
+    --image-version=2.0-debian10 \
+	--subnet=default \
+    --enable-component-gateway \
+    --optional-components=JUPYTER \
+    --initialization-actions=gs://goog-dataproc-initialization-actions-${REGION}/connectors/connectors.sh \
+    --metadata bigquery-connector-version=1.2.0 \
     --metadata spark-bigquery-connector-version=0.21.0 
 
 
