@@ -92,3 +92,7 @@ gcloud dataproc clusters create ${CLUSTER_NAME} \
     --metadata bigquery-connector-version=1.2.0 \
     --metadata spark-bigquery-connector-version=0.21.0 
 
+
+
+
+#testing the job
