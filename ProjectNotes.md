@@ -80,9 +80,9 @@ REGION="us-east1"
 gcloud dataproc clusters create ${CLUSTER_NAME} \
     --region ${REGION} \
     --num-workers=2 \
-    --worker-machine-type=n1-standard-2 \
+    --worker-machine-type=e2-standard-2 \
     --worker-boot-disk-size=150 \
-    --master-machine-type=n1-standard-2 \
+    --master-machine-type=e2-standard-2 \
     --master-boot-disk-size=150 \
     --image-version=2.0-debian10 \
 	--subnet=default \
@@ -91,6 +91,8 @@ gcloud dataproc clusters create ${CLUSTER_NAME} \
     --initialization-actions=gs://goog-dataproc-initialization-actions-${REGION}/connectors/connectors.sh \
     --metadata bigquery-connector-version=1.2.0 \
     --metadata spark-bigquery-connector-version=0.21.0 
+
+
 
 
 
