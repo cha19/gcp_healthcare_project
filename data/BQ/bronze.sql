@@ -1,6 +1,11 @@
 -- Description: Create external tables for bronze dataset in BigQuery
 -- please do not forget to replace the bucket path
 
+-- creating a schema  if it is not existed
+CREATE SCHEMA IF NOT EXISTS `project-275c7543-3087-49e0-a9a.bronze_dataset`
+OPTIONS (location = 'US');
+
+
 CREATE EXTERNAL TABLE IF NOT EXISTS `project-275c7543-3087-49e0-a9a.bronze_dataset.departments_ha` 
 OPTIONS (
   format = 'JSON',

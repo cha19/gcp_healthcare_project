@@ -1,3 +1,9 @@
+-- creating a schema  if it is not existed
+CREATE SCHEMA IF NOT EXISTS `project-275c7543-3087-49e0-a9a.silver_dataset`
+OPTIONS (location = 'US');
+
+
+
 -- IN THIS WE WE WILL IMPLEMENTING BOTH SCD2 AND CDM LOGIC FOR THE SILVER TABLES
 
 -- 1. Create table departments by Merge Data from Hospital A & B  
